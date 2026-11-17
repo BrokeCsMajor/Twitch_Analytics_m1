@@ -48,7 +48,43 @@ public class Main{
 
             switch (userChoice){
                 case 1:
+                    k.nextLine();
+
+                    System.out.println("Please enter the Stream title: ");
+                    String title = k.nextLine();
+
+                    System.out.println("Please enter the duration of the stream: ");
+                    double duration = k.nextDouble();
+                    while (duration <= 0){
+                        System.out.println("Invalid input! Please try again: ");
+                        duration = k.nextDouble();
+                    }
+
+                    System.out.println("Please enter the average viewers for the stream: ");
+                    int average = k.nextInt();
+                    while (average <= 0){
+                        System.out.println("Invalid input! Please try again: ");
+                        average = k.nextInt();
+                    }
+
+                    System.out.println("Please enter the peak viewers for the stream: ");
+                    int peak = k.nextInt();
+                    while (peak <= 0){
+                        System.out.println("Invalid input! Please try again: ");
+                        peak = k.nextInt();
+                    }
+
+                    System.out.println("Please enter how many followers were gained: ");
+                    int gained = k.nextInt();
+                    while (gained <= 0){
+                        System.out.println("Invalid input! Please try again: ");
+                        gained = k.nextInt();
+                    }
                     
+                    Stream newStream = new Stream(title, duration, average, peak, gained);
+                    analyzer.addStream(newStream);
+                    System.out.println("Success!\n");
+                    break;
             }
 
         } while (!(userChoice == 7));
