@@ -15,6 +15,17 @@ public class StreamAnalyzer {
         return streams.size();
     }
 
+    public void getStreamHistory(){
+        if (streams.isEmpty()){
+            System.out.println("No streams have been recorded");
+            return;
+        }
+
+        for (Stream indivdual : streams){
+            indivdual.displayInfo();
+        }
+    }
+
     public double getTotalHours(){
 
         double sum = 0;
