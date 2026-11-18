@@ -9,14 +9,12 @@ public class Main{
         ArrayList<Stream> steamAnalytics = new ArrayList<>();   
 
         // 3 stream objects
-        Stream stream1 = new Stream("Minecraft Survival", 3.5, 85, 142, 12);
-        Stream stream2 = new Stream("Just Chatting", 2.0, 120, 230, 25);
-        Stream stream3 = new Stream("Valorant Ranked", 4.0, 67, 115, 8); 
+        //Stream stream1 = new Stream("Minecraft Survival", 3.5, 85, 142, 12);
+        //Stream stream2 = new Stream("Just Chatting", 2.0, 120, 230, 25);
+        //Stream stream3 = new Stream("Valorant Ranked", 4.0, 67, 115, 8); 
 
         // adding Stream objects to arraylist
-        steamAnalytics.add(stream1);
-        steamAnalytics.add(stream2);
-        steamAnalytics.add(stream3);
+        
 
         // display each stream's information
         for (int i = 0; i < steamAnalytics.size(); i++){
@@ -29,6 +27,11 @@ public class Main{
 
         // StreamAnalyzer Object
         StreamAnalyzer analyzer = new StreamAnalyzer();
+
+        //analyzer.addStream(stream1);
+        //analyzer.addStream(stream2);
+        //analyzer.addStream(stream3);
+
         int userChoice; 
 
         do {
@@ -85,6 +88,25 @@ public class Main{
                     analyzer.addStream(newStream);
                     System.out.println("Success!\n");
                     break;
+                case 2:
+                    System.out.println("================================\n");
+                    analyzer.getStreamHistory();
+                    break;
+                case 3:
+                    analyzer.calcStats(); // fix~
+                    break;
+                case 4:
+                    if(analyzer.getTotalStreams() == 0){
+                        System.out.println("no data!");
+                    }
+                    else{
+                        System.out.println("Best Stream: ");
+                        analyzer.findBestStream().displayInfo();
+                    }
+                    break;
+                case 5:
+
+
             }
 
         } while (!(userChoice == 7));
