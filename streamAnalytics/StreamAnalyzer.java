@@ -69,4 +69,18 @@ public class StreamAnalyzer {
 
         return bestStream;
     }
+
+    public void calcStats(){
+        if (streams.isEmpty()){
+            System.out.println("no data!");
+            return;
+        }
+        
+        System.out.println("====== Statistics for all streams ======");
+        System.out.println("# of Streams: " + getTotalStreams());
+        System.out.println("hours streamed: " + getTotalHours());
+        System.out.println("Average viewers: " + getAverageViewers());
+        System.out.println("Followers Gained: " + getTotalFollowers());
+        System.out.println("========================================");
+    }
 }
