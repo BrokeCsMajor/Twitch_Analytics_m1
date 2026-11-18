@@ -14,9 +14,7 @@ public class Main{
         Stream stream3 = new Stream("Valorant Ranked", 4.0, 67, 115, 8); 
 
         // adding Stream objects to arraylist
-        steamAnalytics.add(stream1);
-        steamAnalytics.add(stream2);
-        steamAnalytics.add(stream3);
+        
 
         // display each stream's information
         for (int i = 0; i < steamAnalytics.size(); i++){
@@ -29,6 +27,11 @@ public class Main{
 
         // StreamAnalyzer Object
         StreamAnalyzer analyzer = new StreamAnalyzer();
+
+        analyzer.addStream(stream1);
+        analyzer.addStream(stream2);
+        analyzer.addStream(stream3);
+
         int userChoice; 
 
         do {
@@ -48,7 +51,47 @@ public class Main{
 
             switch (userChoice){
                 case 1:
+                    k.nextLine();
+
+                    System.out.println("Please enter the Stream title: ");
+                    String title = k.nextLine();
+
+                    System.out.println("Please enter the duration of the stream: ");
+                    double duration = k.nextDouble();
+                    while (duration <= 0){
+                        System.out.println("Invalid input! Please try again: ");
+                        duration = k.nextDouble();
+                    }
+
+                    System.out.println("Please enter the average viewers for the stream: ");
+                    int average = k.nextInt();
+                    while (average <= 0){
+                        System.out.println("Invalid input! Please try again: ");
+                        average = k.nextInt();
+                    }
+
+                    System.out.println("Please enter the peak viewers for the stream: ");
+                    int peak = k.nextInt();
+                    while (peak <= 0){
+                        System.out.println("Invalid input! Please try again: ");
+                        peak = k.nextInt();
+                    }
+
+                    System.out.println("Please enter how many followers were gained: ");
+                    int gained = k.nextInt();
+                    while (gained <= 0){
+                        System.out.println("Invalid input! Please try again: ");
+                        gained = k.nextInt();
+                    }
                     
+                    Stream newStream = new Stream(title, duration, average, peak, gained);
+                    analyzer.addStream(newStream);
+                    System.out.println("Success!\n");
+                    break;
+                case 2:
+                    System.out.println("================================\n");
+                    analyzer.getStreamHistory();
+
             }
 
         } while (!(userChoice == 7));
